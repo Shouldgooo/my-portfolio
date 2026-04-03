@@ -1,3 +1,5 @@
+import { getCloudflareContext } from "@opennextjs/cloudflare";
+
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
 
@@ -6,31 +8,26 @@ type Project = {
 	title: string;
 	description: string;
 	tech_stack: string;
-  };
-  
-  async function getProjects(): Promise<Project[]> {
+};
+
+async function getProjects(): Promise<Project[]> {
 	try {
-	  const baseUrl =
-		process.env.NODE_ENV === "development"
-		  ? "http://localhost:3000"
-		  : "";
-	  const res = await fetch(`${baseUrl}/api/projects`, {
-		cache: "no-store",
-	  });
-  
-	  if (!res.ok) {
-		return [];
-	  }
-  
-	  return res.json();
+		const { env } = await getCloudflareContext();
+		const { results } = await env.portfolio_db
+			.prepare(
+				"SELECT id, title, description, tech_stack FROM projects ORDER BY id DESC"
+			)
+			.all<Project>();
+
+		return results ?? [];
 	} catch {
-	  return [];
+		return [];
 	}
-  }
-  
-  export default async function Home() {
+}
+
+export default async function Home() {
 	const projects = await getProjects();
-  
+
 	return (
 	  <main className="min-h-screen bg-white text-gray-900">
 		<section className="mx-auto max-w-4xl px-6 py-16">
