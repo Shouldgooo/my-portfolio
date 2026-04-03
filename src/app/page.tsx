@@ -110,6 +110,24 @@ export default async function Home() {
 				  <p className="mt-4 text-sm text-gray-500">
 					Tech Stack: {project.tech_stack}
 				  </p>
+				  <div className="mt-4 flex flex-wrap gap-3">
+					<a
+					  href="https://github.com/Shouldgooo/my-portfolio"
+					  target="_blank"
+					  rel="noopener noreferrer"
+					  className="rounded-lg border border-gray-300 px-5 py-3 text-sm font-medium text-gray-900"
+					>
+					  View Code
+					</a>
+					<a
+					  href="https://my-portfolio.sherry-portfolio.workers.dev"
+					  target="_blank"
+					  rel="noopener noreferrer"
+					  className="rounded-lg bg-black px-5 py-3 text-sm font-medium text-white"
+					>
+					  Live Demo
+					</a>
+				  </div>
 				</article>
 			  ))
 			)}

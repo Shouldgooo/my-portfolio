@@ -1,47 +1,69 @@
-# OpenNext Starter
+# My Portfolio
 
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+This is a full-stack portfolio website built with Next.js and Cloudflare.
+
+## Live Demo
+
+**[https://my-portfolio.sherry-portfolio.workers.dev](https://my-portfolio.sherry-portfolio.workers.dev)**
+
+## Tech Stack
+
+- **Next.js** — App Router, React Server Components
+- **TypeScript** — Type-safe application code
+- **Tailwind CSS** — Utility-first styling
+- **Cloudflare Workers** — Edge runtime via [OpenNext](https://opennext.js.org/cloudflare)
+- **Cloudflare D1** — SQLite-backed project data
+
+## Features
+
+- **Dynamic project rendering from database** — Projects are loaded at request time from D1, not hard-coded in the UI
+- **Full-stack architecture with API and D1** — Route handlers and pages share the same data access patterns on the Cloudflare stack
+- **Deployed on Cloudflare Workers** — Global edge deployment with static assets and serverless compute
+
+## Highlights
+
+| Area            | Detail                                                      |
+| --------------- | ----------------------------------------------------------- |
+| Frontend        | Responsive portfolio layout with hero and project sections |
+| Backend / Data  | D1 SQL migrations, typed API and server-side queries       |
+| DevOps          | Wrangler config, Cloudflare bindings, CI-friendly scripts |
 
 ## Getting Started
 
-Read the documentation at https://opennext.js.org/cloudflare.
+Install dependencies:
 
-## Develop
+```bash
+npm install
+```
 
-Run the Next.js development server:
+Run the local development server:
 
 ```bash
 npm run dev
-# or similar package manager command
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-## Preview
-
-Preview the application locally on the Cloudflare runtime:
+### Cloudflare preview (local Worker runtime)
 
 ```bash
 npm run preview
-# or similar package manager command
 ```
 
-## Deploy
-
-Deploy the application to Cloudflare:
+### Deploy to Cloudflare
 
 ```bash
 npm run deploy
-# or similar package manager command
 ```
 
-## Learn More
+(D1 migrations and bindings are configured in `wrangler.jsonc` — apply migrations to your database before expecting project data in production.)
 
-To learn more about Next.js, take a look at the following resources:
+## Project Structure (overview)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- `src/app/` — App Router pages, layouts, and API routes
+- `migrations/` — D1 SQL migrations
+- `wrangler.jsonc` — Worker, D1, and asset bindings
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## License
+
+Personal portfolio project — not licensed for redistribution unless the owner specifies otherwise.
