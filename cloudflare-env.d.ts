@@ -7,6 +7,7 @@ declare namespace Cloudflare {
 		ASSETS: Fetcher;
 		NEXTJS_ENV: string;
 		WORKER_SELF_REFERENCE: Fetcher /* my-portfolio */;
+		portfolio_db: D1Database;
 	}
 }
 interface CloudflareEnv extends Cloudflare.Env {}
