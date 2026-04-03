@@ -1,3 +1,6 @@
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 type Project = {
 	id: number;
 	title: string;
@@ -40,9 +43,18 @@ type Project = {
 				Sherry
 			  </h1>
 			  <p className="mt-4 text-lg leading-8 text-gray-600">
-				Aspiring Full-Stack Developer based in Australia. I am building
-				modern web applications with Next.js, TypeScript, React, and
-				Cloudflare.
+				Full-Stack Developer based in Melbourne with hands-on experience
+				building end-to-end web applications across front-end and back-end.
+			  </p>
+			  <p className="mt-4 text-lg leading-8 text-gray-600">
+				I specialize in React, TypeScript, Java (Spring Boot), and modern
+				API development, with a strong focus on scalable system design and
+				user-focused solutions.
+			  </p>
+			  <p className="mt-4 text-lg leading-8 text-gray-600">
+				I am experienced in cloud and DevOps practices (AWS, Cloudflare,
+				Docker, CI/CD) and actively leverage AI-assisted development tools
+				to improve productivity and accelerate problem-solving.
 			  </p>
   
 			  <div className="mt-6 flex flex-wrap gap-4">
@@ -77,7 +89,9 @@ type Project = {
 		>
 		  <h2 className="text-2xl font-bold">Projects</h2>
 		  <p className="mt-2 text-gray-600">
-			Projects loaded from Cloudflare D1.
+			A selection of projects demonstrating my full-stack development skills,
+			including system design, API development, and user-focused application
+			building.
 		  </p>
   
 		  <div className="mt-8 grid gap-6 md:grid-cols-2">
@@ -85,8 +99,7 @@ type Project = {
 			  <div className="rounded-2xl border border-dashed border-gray-300 p-6">
 				<p className="font-medium">No projects yet</p>
 				<p className="mt-2 text-sm text-gray-600">
-				  When the database is connected, your project cards will appear
-				  here.
+				  My latest projects will appear here.
 				</p>
 			  </div>
 			) : (
